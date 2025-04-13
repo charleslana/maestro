@@ -2,6 +2,10 @@
 
 # id do app instalado
 appId: "com.araujo.araujoapp"
+
+env:
+        MENU_BUSCA: "Busca\n.*"
+        INPUT_PLACEHOLDER: '.*do que você precisa\\?'
 ---
 - launchApp:
           appId: "com.araujo.araujoapp"
@@ -19,19 +23,20 @@ appId: "com.araujo.araujoapp"
 #         longitude: -43.93667
 
 # verifica se o menu Busca apareceu
-- assertVisible: "Busca\n.*"
+- assertVisible: "${MENU_BUSCA}"
 
 # clica no menu Busca
-- tapOn: "Busca\n.*"
+- tapOn: "${MENU_BUSCA}"
 
 # clica na opção para digitar a pesquisa
+- tapOn: "${INPUT_PLACEHOLDER}"
 - tapOn: ".*do que você precisa\\?"
 
 # digita o nome do produto
 - inputText: "Dipirona"
 
-# verifica se o item da pesquisa apareceu
-- assertVisible: "Dipirona"
+# verifica se o item da pesquisa sugerida apareceu
+- assertVisible: "Dipirona 1g"
 
 # fecha o app
 - stopApp: "com.araujo.araujoapp"
