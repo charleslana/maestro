@@ -2,6 +2,10 @@
 
 Automação app mobile
 
+## Instalação do apk
+
+Faça a instalação do apk no emulador antes de executar os testes
+
 ## Extensões VsCode
 
 - Maestro Workbench
@@ -28,13 +32,19 @@ adb devices
 adb devices -l
 ```
 
-## Executar o maestro
+## Executar o teste no maestro
 
 ```bash
 maestro test test.yaml
 ```
 
-## Executar maestro com gravação
+## Executar teste específico no maestro
+
+```bash
+maestro test tests/specs/test_checkout_pix.yaml
+```
+
+## Executar teste no maestro com gravação
 
 ```bash
 maestro record --local test.yaml
@@ -44,6 +54,20 @@ maestro record --local test.yaml
 
 ```bash
 maestro test test.yaml --debug-output logs/
+```
+
+## Definir timeout de limite das ações de espera
+
+Linux
+
+```bash
+export MAESTRO_DRIVER_STARTUP_TIMEOUT=30000 maestro test file.yaml
+```
+
+Windows
+
+```bash
+set MAESTRO_DRIVER_STARTUP_TIMEOUT=30000 && maestro test file.yaml
 ```
 
 ## Maestro studio
@@ -67,3 +91,7 @@ maestro studio
 ## Documentação Maestro
 
 [docs](https://docs.maestro.dev/advanced/configuring-permissions)
+
+## Padrão de arquivos yaml
+
+snake_case

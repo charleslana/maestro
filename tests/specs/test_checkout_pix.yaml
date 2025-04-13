@@ -1,0 +1,43 @@
+# test_checkout_pix.yaml
+
+# id do app instalado
+appId: "com.araujo.araujoapp"
+---
+- launchApp:
+          appId: "com.araujo.araujoapp"
+          clearState: false
+          stopApp: true
+          permissions:
+                  all: allow
+                  #   notifications: allow
+                  #   location: allow
+                  #   android.permission.ACCESS_FINE_LOCATION: allow # deny
+                  #   android.permission.ACCESS_COARSE_LOCATION: allow
+
+# - setLocation:
+#         latitude: -19.91417
+#         longitude: -43.93667
+
+# carrega o arquivo de checkout_common
+- runFlow: ../components/common_checkout.yaml
+
+# clica na opção de pix
+- tapOn: "Pix\n.*"
+
+# clica na opção Revisar o pedido
+- tapOn: "Revisar o pedido\n.*"
+
+# verifica se está na tela de Revisão do pedido
+- assertVisible: "Revisão do pedido"
+
+# clica no botão Confirmar pedido
+- tapOn: "Confirmar pedido"
+
+# verifica se está na tela de Aguardando pagamento
+- assertVisible: "Aguardando pagamento.*"
+
+# verifica se o botão Copiar código Pix está na tela
+- assertVisible: "Copiar código Pix"
+
+# fecha o app
+- stopApp: "com.araujo.araujoapp"
