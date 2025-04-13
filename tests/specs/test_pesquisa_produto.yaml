@@ -1,0 +1,37 @@
+# test_pesquisar_produto.yaml
+
+# id do app instalado
+appId: "com.araujo.araujoapp"
+---
+- launchApp:
+          appId: "com.araujo.araujoapp"
+          clearState: false
+          stopApp: true
+          permissions:
+                  all: allow
+                  #   notifications: allow
+                  #   location: allow
+                  #   android.permission.ACCESS_FINE_LOCATION: allow # deny
+                  #   android.permission.ACCESS_COARSE_LOCATION: allow
+
+# - setLocation:
+#         latitude: -19.91417
+#         longitude: -43.93667
+
+# verifica se o menu Busca apareceu
+- assertVisible: "Busca\n.*"
+
+# clica no menu Busca
+- tapOn: "Busca\n.*"
+
+# clica na opção para digitar a pesquisa
+- tapOn: ".*do que você precisa\\?"
+
+# digita o nome do produto
+- inputText: "Dipirona"
+
+# verifica se o item da pesquisa apareceu
+- assertVisible: "Dipirona"
+
+# fecha o app
+- stopApp: "com.araujo.araujoapp"

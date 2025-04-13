@@ -8,3 +8,4 @@ executionOrder:
   flowsOrder:
     - test_checkout_pix
     - test_checkout_cartao
+    - test_pesquisa_produto
