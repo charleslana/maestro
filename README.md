@@ -46,12 +46,6 @@ maestro record --local test.yaml
 maestro test test.yaml --debug-output logs/
 ```
 
-## Executar maestro com .env
-
-```bash
-maestro test test.yaml --env .env
-```
-
 ## Maestro studio
 
 ```bash
