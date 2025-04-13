@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Configurações iniciais
+sudo apt -y install adb
 ANDROID_DIR="$HOME/Android"
 CMDLINE_TOOLS_DIR="$ANDROID_DIR/cmdline-tools"
 SDK_URL="https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip"
