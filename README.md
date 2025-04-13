@@ -32,6 +32,19 @@ adb devices
 adb devices -l
 ```
 
+## Executar todos os testes no maestro
+
+```bash
+maestro test tests/
+```
+
+## Executar testes com report html ou junit
+
+```bash
+maestro test --format html tests/
+maestro test --format junit tests/
+```
+
 ## Executar o teste no maestro
 
 ```bash
@@ -50,7 +63,7 @@ maestro test tests/specs/test_checkout_pix.yaml
 maestro record --local test.yaml
 ```
 
-## Executar maestro com logs
+## Executar maestro com debug
 
 ```bash
 maestro test test.yaml --debug-output logs/

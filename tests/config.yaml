@@ -1,0 +1,10 @@
+# config.yaml
+
+flows:
+  - "specs/*"
+
+executionOrder:
+  continueOnFailure: true
+  flowsOrder:
+    - test_checkout_pix
+    - test_checkout_cartao
