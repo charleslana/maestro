@@ -1,0 +1,63 @@
+# test.yaml
+timeout: 30000
+
+# id do app instalado
+appId: "com.araujo.araujoapp"
+---
+- launchApp:
+      appId: "com.araujo.araujoapp"
+      clearState: false
+      stopApp: true
+      permissions:
+          notifications: allow
+          android.permission.ACCESS_FINE_LOCATION: deny
+          location: allow
+
+- setLocation:
+      latitude: -19.91417
+      longitude: -43.93667
+
+# verifica se o menu início apareceu
+- assertVisible:
+      text: "Início\nGuia 1 de 5"
+
+# desce até encontrar o carrossel de Dermocosmetico
+- scrollUntilVisible:
+      element:
+          text: "Dermocosmetico\n.*"
+      direction: "DOWN"
+      timeout: 30000
+      speed: 70
+
+# clica no primeiro produto do carrossel de Dermocosmetico
+- tapOn: "83,99"
+
+# verifica se está na tela de Detalhes do produto
+- assertVisible: "Detalhes do produto"
+
+# clica no botão Comprar
+- tapOn: "Comprar"
+
+# clica em Ver cesta
+- tapOn: ".*\nVer cesta"
+
+# verifica se está na tela de Sua cesta
+- assertVisible: "Sua cesta"
+
+# clica no botão Ir para entrega
+- tapOn: "Ir para entrega\n.*"
+
+# verifica se está na tela de Escolha como receber
+- assertVisible: "Escolha como receber"
+
+# clica na opção de retirar
+- tapOn: "RETIRAR\n.*"
+
+# clica na opção Ir para o pagamento
+- tapOn: "Ir para o pagamento\n.*"
+
+# clica na primeira loja
+- tapOn: "Pedido completo.*"
+
+# fecha o app
+- stopApp: "com.araujo.araujoapp"
